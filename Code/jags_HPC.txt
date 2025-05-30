@@ -1,0 +1,33 @@
+
+
+
+Check Maximum Time Limits for Partitions/QOS:
+sacctmgr show qos format=Name,MaxWall
+
+
+
+export PATH=/bighome/jli183/my_r_env/bin:$PATH
+
+
+export LD_LIBRARY_PATH=/bighome/jli183/my_r_env/lib:$LD_LIBRARY_PATH
+
+
+export R_LIBS_USER=/bighome/jli183/my_r_env/lib/R/library
+
+
+which R
+
+
+R
+if ("rjags" %in% rownames(installed.packages())) {
+    print("rjags is installed")
+} else {
+    print("rjags is NOT installed")
+}
+
+
+sbatch r_1.slurm
+
+squeue -u jli183
+
+scancel job_id
